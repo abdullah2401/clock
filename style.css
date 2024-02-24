@@ -1,0 +1,267 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #96a3b1;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.clock {
+    position: relative;
+    margin: 100px auto;
+    width: 400px ;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    border-radius: 200px 200px 20px 20px ;
+    -webkit-border-radius: 200px 200px 20px 20px ;
+    -moz-border-radius: 200px 200px 20px 20px ;
+    -ms-border-radius: 200px 200px 20px 20px ;
+    -o-border-radius: 200px 200px 20px 20px ;
+    box-shadow: 45px 45px 45px -15px rgba(0, 0, 0, 0.15),
+                inset 15px 15px 10px rgba(255, 255, 255, 0.75),
+                -15px -15px 35px rgba(255, 255, 255, 0.55),
+                inset -2px -2px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.calac {
+    top: 25px;
+    width: 350px ;
+    position: absolute;
+    height: 350px ;
+    background-color: #152b4e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    box-shadow:  7px 7px 22px #152b4a66,
+                inset 7px 7px 7px rgba(255, 255, 255, 0.6),
+                -9px -9px 15px rgba(255, 255, 255, 1);
+            }
+            
+.calac span {
+    inset: 15px;
+    text-align: center;
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    -webkit-transform: rotate(calc(30deg * var(--i)));
+    -moz-transform: rotate(calc(30deg * var(--i)));
+    -ms-transform: rotate(calc(30deg * var(--i)));
+    -o-transform: rotate(calc(30deg * var(--i)));
+}
+.calac span b {
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+    -webkit-transform: rotate(calc(-30deg * var(--i)));
+    -moz-transform: rotate(calc(-30deg * var(--i)));
+    -ms-transform: rotate(calc(-30deg * var(--i)));
+    -o-transform: rotate(calc(-30deg * var(--i)));
+}
+
+.calac .circle {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.calac .circle i {
+    position: absolute;
+    width: 6px;
+    height: 50%;
+    background-color: var(--clr);
+    opacity: 0.75;
+    transform: scaleY(0.5);
+    transform-origin: bottom;
+    -webkit-transform: scaleY(0.5);
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    -o-transform: scaleY(0.5);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.calac::before{
+    content: '';
+    position: absolute;
+    width: 4px ;
+    height: 4px;
+    background-color: #ff2972;
+    z-index: 99999;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 0 0 1px #ff2972,
+    0 0 0 3px #fff,
+    0 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+.calac .circle#sec i{ width: 2px; }
+.calac .circle#min i{ width: 4px; }
+
+.calac .circle#min {width: 210px; height: 210px;}
+.calac .circle#hrs {width: 160px; height: 160px;}
+
+.calac .circle::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--clr);
+    top: -6px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    box-shadow: 0 0 15px var(--clr),
+    0 0 50px var(--clr);
+}
+
+#time {
+    position: absolute;
+    bottom: 35px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px ;
+    font-size: 2em;
+    font-weight: 600;
+    background-color: #152b4e;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+    margin: auto;
+    box-shadow: 7px 7px 22px #152b4a66,
+                inset 7px 7px 7px rgba(255, 255, 255, 0.6),
+                -9px -9px 15px rgba(255, 255, 255, 1);
+}
+
+#time div {
+    position: relative;
+    width: 60px;
+    text-align: center;
+    color: var(--clr);
+    opacity: 0.75;
+}
+
+#time div:last-child {
+    font-size: 0.5em;
+    font-weight: 500;
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after{
+    content: ':';
+    position: absolute;
+    right: -4px;
+}
+
+#time div:nth-child(2)::after {
+    animation: animate 1s steps(1) infinite;
+    -webkit-animation: animate 1s steps(1) infinite;
+}
+
+@keyframes animate {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+}
+
+@media (max-width: 767px){
+   .clock {
+       margin: 50px auto;
+       width: 300px ;
+       height: 400px;
+   }
+   
+   
+   .calac {
+       width: 250px ;
+       height: 250px ;
+   }
+   .calac span {
+       inset: 10px;
+   }
+   .calac .circle {
+       width: 170px;
+       height: 170px;
+   }
+   .calac .circle#min {width: 135px; height: 135px;}
+   .calac .circle#hrs {width: 100px; height: 100px;}
+   .calac .circle i {
+       width: 5px;
+   }
+   .calac .circle#sec i{ width: 1.5px; }
+   .calac .circle#min i{ width: 3px; }
+   .calac::before{
+       width: 3px ;
+       height: 3px;
+   }
+   .calac .circle::before{
+       width: 7px;
+       height: 7px;
+       top: -4px;
+   }
+   
+   #time {
+       bottom: 35px;
+       padding: 6px 12px ;
+       font-size: 1.6em;
+   }
+   
+   #time div {
+       width: 45px;
+   }
+   
+   #time div:last-child {
+       font-size: 0.4em;
+   }
+   
+   #time div:nth-child(1)::after,
+   #time div:nth-child(2)::after{
+       right: -3px;
+   }
+}
